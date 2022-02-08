@@ -5,6 +5,7 @@ class FarmsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Farm
-        fields = ['name','created_at','is_active','status','division','region',]
+        fields = ['id','name','id_ref','created_at','is_active','status','region',]
+        #depth = 1
 
     

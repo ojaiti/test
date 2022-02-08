@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import datetime
+from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure--74q)%6h264d6vuio$d*7+ltw%m^+wfncddw#5j-0xwv#37vn7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '*'
+    ]
 
 
 # Application definition
@@ -41,12 +43,9 @@ INSTALLED_APPS = [
     'import_export',
     'drf_yasg',
     'django_filters',
+    'corsheaders',
     'users',
-    'categorias',
-    'posts',
-    'comments',
     'regiones',
-    'division',
     'farms',
     'status_farm',
     'nights_noroeste',
@@ -55,20 +54,29 @@ INSTALLED_APPS = [
     'nights_veracruz',
     'nights_regiones',
     'visitedfarmbyuser',
-    
+    'schedule_visit',
+    'status_authorization',
+    'user_auth_sol',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+]
 ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [
@@ -102,10 +110,10 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5c5kvqcpa47ht',
-        'USER': 'bhxxormytdevjs',
-        'PASSWORD': '57e3a879edcdeaf6cad314b94105ab242d5c414c95433e85d9a708e70ef978e8',
-        'HOST': 'ec2-3-231-112-124.compute-1.amazonaws.com',
+        'NAME': 'monitor_ojai',
+        'USER': 'postgres',
+        'PASSWORD': 'J8v5.f675',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -135,8 +143,8 @@ REST_FRAMEWORK = {
     )
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7)
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=1080)
 }
 
 # Internationalization
@@ -165,3 +173,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Accedemos a la clase
 AUTH_USER_MODEL = 'users.User' 
+
+
+
+

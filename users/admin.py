@@ -5,3 +5,6 @@ from users.models import User
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     pass
+
+
+admin.site.site_url = "http://localhost:3000/login"

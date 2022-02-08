@@ -9,9 +9,9 @@ from nights_noroeste.api.permissions import IsAdminOrReadOnly
 class NigthsNoroesteApiViewSet(ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     serializer_class = NightsNoroesteSerializer
-    queryset = NightsNoroeste.objects.filter(farm_origen=2)
-    queryset = NightsNoroeste.objects.filter(farm_origen=2).select_related('farm_origen')
+    queryset = NightsNoroeste.objects.all()
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     ordering = ['-farm_origen']
     
 
+ 

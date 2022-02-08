@@ -4,4 +4,4 @@ from visitedfarmbyuser.models import VisitedFarmByUser
 
 @admin.register(VisitedFarmByUser)
 class VisitedFarmByUserAdmin(admin.ModelAdmin):
-    list_display= ['user','origin_farm','destination_farm','date','is_same_flow','nights','reason']
+    list_display= ['user','origin_farm','destination_farm','date','is_same_flow','nights','number_of_people', 'names_of_people','reason', 'is_authorized','authorizing_user']

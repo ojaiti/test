@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('division', '0001_initial'),
         ('regiones', '0001_initial'),
         ('status_farm', '0001_initial'),
     ]
@@ -22,7 +21,6 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
-                ('division', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='division.division')),
                 ('region', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='regiones.regiones')),
                 ('status', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='status_farm.statusfarm')),
             ],

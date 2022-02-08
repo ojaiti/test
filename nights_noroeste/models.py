@@ -45,7 +45,6 @@ class NightsNoroeste(models.Model):
     venta_resaga = models.PositiveSmallIntegerField(default=2)
 
     class Meta:
-        pass
-        #ordering = ('farm_origen',)
+        ordering = ('farm_origen__id',)
     def __str__(self):
         return f'{self.farm_origen}'

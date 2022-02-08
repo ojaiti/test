@@ -9,6 +9,8 @@ class VisitedFarmByUser(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     is_same_flow = models.BooleanField(default=False)
     nights = models.PositiveSmallIntegerField(default=0)
+    number_of_people = models.PositiveSmallIntegerField(null=False)
+    names_of_people = models.TextField(null=False, blank=True)
     reason = models.TextField(max_length=250, null=True)
     is_authorized = models.BooleanField(default=False)
     authorizing_user = models.ForeignKey(User, null=True, blank=True, related_name='authorizing_user', on_delete=models.SET_NULL)
